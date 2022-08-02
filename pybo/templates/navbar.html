@@ -1,0 +1,57 @@
+        <!-- 네비게이션바 입력 시작 -->
+        <nav class="navbar navbar-expand-lg navbar-light bf-light border-bottom">
+            {% if g.user %}
+            <a class="navbar-brand" href="{{ url_for('question._list') }}">특허관리 시스템</a>
+            {% else %}
+            <a class="navbar-brand" href="#">특허관리 시스템</a>
+            {% endif %}
+            <!-- 해당 글자 클릭하면 url_for 통해서 main.index 로 이동됨 -->
+
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle naviagtion">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+                {% if g.user %}
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">'{{ g.user.username }}' 님 방문을 환영합니다. (로그아웃)</a>
+                        <!-- {{ g.user.username }} 의 username 부분을 email 등으로 바꿔도 된다. -->
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.newpass_ss')}}">비밀번호 변경
+                            <!-- 링크 적용 테스트 단계 -->
+                        </a>
+                    </li>
+
+                    
+                    {% if g.user.username == "관리자" %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.signup') }}">계정생성</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('question.userlist') }}">회원관리</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('question.upload_file') }}">데이터 업로드</a>
+                    </li>
+                    {% endif %}
+
+                    
+
+                </ul>
+                {% else %}
+                <ul class="navbar-nav">
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.login') }}">로그인</a>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </nav>
+        <!-- 네비게이션바 입력 종료 -->

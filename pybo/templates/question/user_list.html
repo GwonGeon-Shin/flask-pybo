@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-3 p-2">
+
+    <!-- user list -->
+    <table class="table table-sm table-hover">
+        <thead>
+            <tr class="text-center thead-dark ">
+                <th style="width:9%">이름</th>
+                <th style="width:8%">email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if user_list %}
+            {% for user in user_list %}
+            <tr>                
+                <!-- our_ref 에 상세페이지 들어갈수 있는 링크 만든다. -->
+                <td class="text-start">
+                    <a href="#">{{ user.username }}</a>
+                </td>
+
+                <!-- user email 적용 -->
+                <td class="d-inline-bolck text-truncate" style="max-width: 100px;">
+                    {{ user.email }}
+                </td>             
+                
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="3">User이(가) 없습니다.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    
+</div>
+
+{% endblock %}

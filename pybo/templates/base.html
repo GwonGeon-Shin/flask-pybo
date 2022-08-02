@@ -1,0 +1,32 @@
+<html lang="ko">
+    <head>
+        <!-- required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+        <!-- pybo css -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>특허관리 시스템</title>
+    </head>
+    <body>
+        <!-- 네비게이션바 입력 시작 -->
+        {% include "navbar.html" %}
+        <!-- 네비게이션바 입력 종료 -->
+
+        <!-- 기본 템플릿 안에 삽입될 내용 start -->
+        {% block content %}
+        {% endblock %}
+        <!-- 제이쿼리.js -->
+        <script src="{{url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
+        <!-- 부트스트랩.js -->
+        <script src="{{url_for('static', filename='bootstrap.min.js') }}"></script>
+        <!-- 기본 템플릿 안에 삽입될 내용 end -->
+
+        <!-- 자바스크립트 시작-->
+        {% block script %}
+        {% endblock %}
+        <!-- 자바스크립트 종료-->
+    </body>
+
+</html>

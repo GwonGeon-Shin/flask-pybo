@@ -1,0 +1,10 @@
+{% if question_list %}
+    <ul>
+        {% for question in question_list %}
+        <li><a href="#">{{ question.p_name }}</a></li>
+        <!-- p_name => 특허내용중 "국문명칭" 내용임 -->
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>질문이 없습니다.</p>
+{% endif %}

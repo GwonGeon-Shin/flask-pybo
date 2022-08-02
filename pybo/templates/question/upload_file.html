@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h5 class="my-3 border-bottom pb-2">데이터 파일 업로드</h5>
+    <form action="http://localhost:5000/question/uploader"
+    method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <input type="submit" />
+    </form>
+</div>
+{% endblock %}

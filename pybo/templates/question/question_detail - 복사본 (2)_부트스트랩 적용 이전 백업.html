@@ -1,0 +1,31 @@
+
+
+
+
+<h3>{{ question.p_name }}</h3>
+
+<div>
+    {{ question.our_ref }}
+    
+</div>
+
+</br>
+
+<div>
+    {{ question.p_charge }}
+</div>
+</br>
+
+<!-- 입금일 표기부 시작 -->
+<h5>입금일자</h5>
+<div>
+    {{ question.pay_date }}
+</div>
+<!-- 입금일 표기부 종료 -->
+</br>
+
+<h5>입금일자를 등록 해주세요</h5>
+<form action="{{ url_for('question.create', question_id=question.id) }}" method="post">
+    <textarea name="content" id="content" rows="2"></textarea>
+    <input type="submit" value="입금일 등록">
+</form>

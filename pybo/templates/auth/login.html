@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container h-100">
+</br>
+    <div class="mb-3" style="float: none; margin:0 auto; width:60%;">
+        <h5 class="my-4 border-bottom pb-2" style="width:100%">로그인</h5>
+    </div>
+    
+    <form method="post">
+        {{ form.csrf_token }}
+        {% include "form_errors.html" %}
+        <div class="mb-3" style="float: none; margin:0 auto; width:60%;">
+            <label for="username">사용자 E-mail</label>
+            <input type="text" class="form-control" name="username" id="username"
+                   value="{{ form.username.data or '' }}" placeholder="name@example.com">
+        </div>
+
+        <div class="mb-3" style="float: none; margin:0 auto; width:60%;">
+            <label for="password">비밀번호</label>
+            <input type="password" class="form-control" name="password" id="password"
+                   value="{{ form.password.data or '' }}" placeholder="Password">
+        </div>
+
+        <div class="mb-3" style="float: none; margin:0 auto; width:60%; text-align: center;">
+            <button type="submit" class="btn btn-primary" style="width:100%">로그인</button>
+            <p class="mt-4 mb-3 text-muted">&copy; 2019–2022</p>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+<div class="container my-3">
+    <h3 class="border-bottom py-2">{{ question.p_name }}</h3>
+    
+
+    <!-- 관리번호 표기부 시작 -->
+    <h5 class="border-bottom my-3 py-2">관리번호</h5>
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-text" style="white-space: pre-line;">{{ question.our_ref }}</div>
+            <div class="d-flex justify-content-end">
+            </div>
+        </div>
+    </div>
+    <!-- 관리번호 표기부 종료 -->
+
+    <!-- 의뢰인 표기부 시작 -->
+    <h5 class="border-bottom my-3 py-2">의뢰인</h5>
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-text" style="white-space: pre-line;">{{ question.req_name }}</div>
+            <div class="d-flex justify-content-end">
+            </div>
+        </div>
+    </div>
+    <!-- 의뢰인 표기부 종료 -->
+
+    <!-- 출원인 표기부 시작 -->
+    <h5 class="border-bottom my-3 py-2">출원인</h5>
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-text" style="white-space: pre-line;">{{ question.cus_name }}</div>
+            <div class="d-flex justify-content-end">
+            </div>
+        </div>
+    </div>
+    <!-- 출원인 표기부 종료 -->
+
+    <!-- 출원일 표기부 시작 -->
+    <h5 class="border-bottom my-3 py-2">출원일 / 출원번호</h5>
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-text" style="white-space: pre-line;">{{ question.date }} / {{ question.number }}</div>
+            <div class="d-flex justify-content-end">
+            </div>
+        </div>
+    </div>
+    <!-- 출원일 표기부 종료 -->
+
+    <!-- 담당자_01 / 담당자_02 / 변리사 표기부 시작 -->
+    <h5 class="border-bottom my-3 py-2">담당자_01 / 담당자_02 / 변리사</h5>
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-text" style="white-space: pre-line;">{{ question.charge_01 }} / {{ question.charge_02 }} / {{ question.p_charge }}</div>
+            <div class="d-flex justify-content-end">
+            </div>
+        </div>
+    </div>
+    <!-- 담당자_01 / 담당자_02 / 변리사 표기부 종료 -->
+
+
+    <!-- ======================= -->
+    <!-- ======================= -->
+    <!-- ======================= -->
+    <!-- ======================= -->
+
+    <!-- 입금일 표기부 시작 -->
+    <h5 class="border-bottom my-3 py-2">입금일자</h5>
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-text" style="white-space: pre-line;">{{ question.pay_date }}</div>
+            <div class="d-flex justify-content-end">
+            </div>
+        </div>
+    </div>
+    <!-- 입금일 표기부 종료 -->
+
+    <!-- 입금일자 입력부 시작-->
+    <form action="{{ url_for('question.create', question_id=question.id) }}" method="post" class="my-3">
+        <div class="form-group">
+            <textarea name="content" id="content" class="form-control" rows="2"></textarea>
+        </div>
+        <input type="submit" value="입금일 등록" class="btn btn-primary">
+    </form>
+    <!-- 입금일자 입력부 종료 -->
+
+</div>
